@@ -1,50 +1,21 @@
-import Head from 'next/head'
+import Head from 'next/head';
 import Link from 'next/link'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
+import styles from "../styles/utils.module.css";
 
-import { getSortedPostsData } from '../lib/posts'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  return {
-    props: {
-      allPostsData
-    }
-  }
-}
-
-export default function Home({allPostsData}) {
+export default function Home() {
   return (
-    <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
-        <p>개발자 이준현</p>
-        <p>
-          다 가구 주택을 만들기를 원하는 
-          <a href="https://junsjourney.site">  준현이의 웹사이트</a>
-        </p>
-        <Link href="posts/first-page">
-          ㅋㅋㅋㅋㅋ
-        </Link>
-      </section>
+    <>
+    <Head>
+      <title>Juns Blog | HOME </title>
+    </Head>
+    <div>
+      <h1 className={styles.heading2Xl}>Cool Blakc</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo similique voluptatum blanditiis enim, reprehenderit earum labore ullam, amet itaque doloribus dolores officiis possimus? Dolorum tempora laboriosam explicabo at ullam doloribus?</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo similique voluptatum blanditiis enim, reprehenderit earum labore ullam, amet itaque doloribus dolores officiis possimus? Dolorum tempora laboriosam explicabo at ullam doloribus?</p>
 
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              {title}
-              <br />
-              {id}
-              <br />
-              {date}
-            </li>
-          ))}
-        </ul>
-      </section>
-    </Layout>
+      <Link href="/">HOME</Link>
+    </div>
+    </>
   )
 }
