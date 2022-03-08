@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { navbarList } from "../utils/help";
 
 const Navbar = () => {
   return (
@@ -14,9 +15,9 @@ const Navbar = () => {
             alt="Air-jorean"
           />
         </div>
-        <Link href="/">HOME</Link>
-        <Link href="/about">About</Link>
-        <Link href="/list">List</Link>
+        {navbarList.map(item=>{
+          return <Link key={item.id} href={item.link}>{item.name}</Link>
+        })}
       </div>
     </nav>
   );
